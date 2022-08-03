@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+h1{
+  @apply font-bold text-xl
+}
+h2{
+  @apply font-semibold text-2xl
+}
+body {
+  @apply font-["Inter"] bg-slate-900 text-white;
+}
+
+input,
+textarea {
+ @apply p-3  my-3 bg-transparent text-white rounded-md border border-slate-400
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+  font-weight: bold;
+}
+
+.note-app__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 16px;
+  border-bottom: 1px solid #aaa;
+}
+
+.note-app__header h1 {
+  margin: 8px 0;
+  flex: 1;
+  color: white;
+}
+
+.note-app__header input {
+  width: 400px;
+}
+
+.note-app__body {
+  max-width: 1000px;
+  margin: 16px auto;
+  padding: 12px;
+}
+
+.note-app__body h2 {
+  font-weight: normal;
+  margin: 16px 0;
+}
+
+.note-input {
+  margin: 0 auto;
+  max-width: 500px;
+  margin-bottom: 48px;
+}
+
+.note-input input,
+.note-input textarea {
+  display: block;
+  width: 100%;
+}
+
+.note-input__title {
+  font-weight: bold;
+}
+
+.note-input__title__char-limit {
+  @apply text-xs text-right text-slate-400
+}
+
+.note-input__body {
+  min-height: 175px;
+}
+
+.note-input button {
+  @apply block w-full p-2 bg-transparent text-white border rounded-lg bg-slate-600 hover:bg-slate-600/50
+}
+.notes-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content);
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.notes-list__empty-message {
+  text-align: center;
+  color: #aaa;
+}
+
+.note-item {
+  @apply bg-slate-800 border border-slate-400 rounded-lg shadow-md shadow-slate-800 overflow-hidden flex flex-col
+}
+
+.note-item__content {
+  padding: 12px;
+  flex: 1;
+}
+
+.note-item__title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.note-item__date {
+  font-size: 12px;
+  margin-bottom: 8px;
+  color: #aaa;
+}
+
+.note-item__body {
+  font-size: 14px;
+}
+
+.note-item__action {
+  display: flex;
+}
+
+.note-item__delete-button{
+  @apply bg-red-400/20 text-red-500 py-2 font-semibold border-t flex items-center justify-center text-sm gap-1 w-full
+  
+}
+.note-item__archive-button {
+  @apply flex w-full bg-yellow-400/20 border-t py-2 font-semibold text-sm justify-center gap-1 
+}
+
+.note-item__delete-button {
+  border-right: 1px solid #aaa;
+  
+}
+
+.note-item__archive-button {
+  color: #fff263;
+}
+
+.note-item__archive-button:hover {
+  
+  @apply text-yellow-100 bg-yellow-500
+}
+
+.note-item__delete-button:hover {
+  @apply text-red-100 bg-red-500
+}
+
+@media only screen and (min-width: 500px) {
+  .notes-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .note-search input {
+    min-width: 400px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .notes-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
